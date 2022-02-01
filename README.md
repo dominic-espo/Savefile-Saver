@@ -27,3 +27,17 @@ machine, you would need to remove `SetConsoleTitle(TEXT("Savefile Saver"))` and 
 
 This would require a lot of work for a very small amount of users. I use Linux myself, but not for gaming. That's why I have Windows. So, I have
 not explored this route yet. But feel free to do so yourself in a fork of this project.
+
+### Usage
+
+After either downloading the binary release or compiling from source, run the program. You should be greeted with some ASCII art, a version
+number, and a menu to select which game's savefiles you would like to save.
+
+Find a game that you would like to backup by finding it in the list, and reading it's corresponding index. For example, if you wanted to backup
+savefiles from `DARK SOULS III` type `3` in the program.
+
+You should then see a confirmation in the terminal saying that your files are now being copied to the `Saved` folder in the program's source
+directory.
+
+Afterwards, always make sure that the `Saved` folder has been backed up to some sort of USB or external drive. This won't guarantee that your data
+won't be lost or stolen. But if your main machine fails in some way, you'll have an external backup of your savefiles.
