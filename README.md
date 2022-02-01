@@ -20,7 +20,7 @@ To compile from source, you can use any compiler that supports the Windows API. 
 
 Now, it is possible to modify this source for use on Linux. The reason this program uses the Windows API, is so that the %USER% environment
 variable can be fetched, unicode can be displayed properly, and the terminal can have a custom name. So, to get this program running on a Linux
-machine, you would need to remove `SetConsoleTitle(TEXT("Savefile Saver"))` and SetConsoleOutputCP(CP_UTF8) then modify the use of
+machine, you would need to remove `SetConsoleTitle(TEXT("Savefile Saver"))` and `SetConsoleOutputCP(CP_UTF8)` then modify the use of
 `std::getenv("USERPROFILE")` somehow.
 
 This would require a lot of work for a very small amount of users. I use Linux myself, but not for gaming. That's why I have Windows. So, I have
