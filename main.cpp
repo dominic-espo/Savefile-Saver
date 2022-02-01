@@ -89,8 +89,8 @@ int main()
                "  3 > DARK SOULS III              | C:/Users/USER/AppData/Roaming/DarkSoulsIII\n"
                "  4 > DARK SOULS: REMASTERED      | C:/Users/USER/Documents/NBGI/DARK SOULS REMASTERED\n"
                "  5 > Hearts of Iron IV           | C:/Users/USER/Documents/Paradox Interactive/Hearts of Iron IV/save games\n"
-               "  6 > Sekiro: Shadows Die Twice   | C:/Users/USER/AppData/Roaming/Sekiro\n\n"
-               "  7 > The Witcher 3               | C:/Users/USER/Documents/The Witcher 3/gamesaves\n"
+               "  6 > Sekiro: Shadows Die Twice   | C:/Users/USER/AppData/Roaming/Sekiro\n"
+               "  7 > The Witcher 3               | C:/Users/USER/Documents/The Witcher 3/gamesaves\n\n"
                "  0 > Exit\n\n"
                " > ");
 
