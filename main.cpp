@@ -41,7 +41,7 @@ void saveFunction(const std::string& sourceEndInput, const std::string& destinat
 
     printf("\n  Your files are now being copied. This may take some time depending on your drive type and source folder size...");
 
-    variables.destination = "";
+    variables.destination = ""; // Makes sure that the destination variable is cleared.
     variables.destination += std::getenv("USERPROFILE");
     variables.destination += sourceEndInput;
 
@@ -58,11 +58,8 @@ int main()
 {
     Variables variables;
 
-    // Sets the terminal name.
-    SetConsoleTitle(TEXT("Savefile Saver"));
-
-    // Fixes unicode ASCII art not being displayed properly.
-    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleTitle(TEXT("Savefile Saver")); // Sets the terminal name.
+    SetConsoleOutputCP(CP_UTF8); // Fixes unicode ASCII art not being displayed properly.
 
     startupChecks();
 
