@@ -7,4 +7,5 @@ tedious after a while. So, Savefile Saver was born.
 ### Requirements
 
 * Windows 7 =<
+
 *It may be possible to use Windows versions lower than this, but versions lower than 7 have not been tested*
