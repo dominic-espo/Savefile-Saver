@@ -8,12 +8,15 @@ tedious after a while. So, Savefile Saver was born.
 
 * Windows 7 =<
 
-*It may be possible to use Windows versions lower than this, but versions lower than 7 have not been tested*
+*It may be possible to use Windows versions lower than this, but versions lower than 7 have not been tested, and may have bugs.*
 
 ### Installation
 
 You can download a binary release from the [release](https://github.com/DrakoDom/Savefile-Saver/releases/ "Releases") page, or compile from source.
 
-To compile from source, you can use any compiler that supports the Windows API. Now, it is possible to modify this source for use on Linux. The only
+To compile from source, you can use any compiler that supports the Windows API. All you need is the `main.cpp` file. You can also use the included
+`CMakeLists.txt` file if needed.
+
+Now, it is possible to modify this source for use on Linux. The only
 reason this program uses the Windows API, is so that the %USER% environment variable can be fetched. So, to get this program running on a Linux
 machine, you would need to modify the use of `std::getenv("USERPROFILE")` somehow. I have no explored this route yet. But feel free to do so yourself.
