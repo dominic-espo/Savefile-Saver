@@ -39,5 +39,5 @@ savefiles from `DARK SOULS III` type `3` in the program.
 You should then see a confirmation in the terminal saying that your files are now being copied to the `Saved` folder in the program's source
 directory.
 
-Afterwards, always make sure that the `Saved` folder has been backed up to some sort of USB or external drive. This won't guarantee that your data
-won't be lost or stolen. But if your main machine fails in some way, you'll have an external backup of your savefiles.
+Afterwards, always make sure that the `Saved` folder has been backed up to some sort of USB or external drive. This cannot guarantee that your
+data won't be lost or stolen. But if your main machine fails in some way, you'll have an external backup of your savefiles.
