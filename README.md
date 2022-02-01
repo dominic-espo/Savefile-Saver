@@ -6,6 +6,7 @@ that becomes tedious after a while. So, Savefile Saver was born.
 
 ### Requirements
 
+* Compiler that supports the Windows API, and C++20
 * Windows 7 =<
 
 *It may be possible to use Windows versions lower than this, but versions lower than 7 have not been tested, and may have critical bugs that
