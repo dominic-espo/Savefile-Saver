@@ -9,3 +9,7 @@ tedious after a while. So, Savefile Saver was born.
 * Windows 7 =<
 
 *It may be possible to use Windows versions lower than this, but versions lower than 7 have not been tested*
+
+### Installation
+
+You can download a binary release from the [release](https://github.com/DrakoDom/Savefile-Saver/releases/ "Releases") page, or compile from source.
