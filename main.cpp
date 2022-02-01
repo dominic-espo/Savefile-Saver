@@ -12,7 +12,7 @@ struct Variables
     bool quit = false;          // Boolean for checking when to stop the program.
 };
 
-void startupChecks()
+void startupCheck()
 {
     Variables variables;
 
@@ -61,7 +61,7 @@ int main()
     SetConsoleTitle(TEXT("Savefile Saver")); // Sets the terminal name.
     SetConsoleOutputCP(CP_UTF8); // Fixes unicode ASCII art not being displayed properly.
 
-    startupChecks();
+    startupCheck();
 
     while (!variables.quit)
     {
