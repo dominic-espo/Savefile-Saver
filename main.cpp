@@ -84,12 +84,13 @@ int main()
 )");
 
         printf(" All currently supported games:\n\n"
-               "  1 > The Witcher 3               | C:/Users/USER/Documents/The Witcher 3/gamesaves\n"
-               "  2 > Hearts of Iron IV           | C:/Users/USER/Documents/Paradox Interactive/Hearts of Iron IV/save games\n"
-               "  3 > DARK SOULS: REMASTERED      | C:/Users/USER/Documents/NBGI/DARK SOULS REMASTERED\n"
-               "  4 > Crusader Kings III          | C:/Users/USER/Documents/Paradox Interactive/Crusader Kings III\n"
-               "  5 > DARK SOULS III              | C:/Users/USER/AppData/Roaming/DarkSoulsIII\n"
+               "  1 > Crusader Kings III          | C:/Users/USER/Documents/Paradox Interactive/Crusader Kings III\n"
+               "  2 > Cyberpunk 2077              | C:/Users/USER/Saved Games/CD Projekt Red\n"
+               "  3 > DARK SOULS III              | C:/Users/USER/AppData/Roaming/DarkSoulsIII\n"
+               "  4 > DARK SOULS: REMASTERED      | C:/Users/USER/Documents/NBGI/DARK SOULS REMASTERED\n"
+               "  5 > Hearts of Iron IV           | C:/Users/USER/Documents/Paradox Interactive/Hearts of Iron IV/save games\n"
                "  6 > Sekiro: Shadows Die Twice   | C:/Users/USER/AppData/Roaming/Sekiro\n\n"
+               "  7 > The Witcher 3               | C:/Users/USER/Documents/The Witcher 3/gamesaves\n"
                "  0 > Exit\n\n"
                " > ");
 
@@ -112,46 +113,7 @@ int main()
                 getchar();
 
                 break;
-            case '1': // The Witcher 3
-                if (std::filesystem::exists("./Saved/The Witcher 3"))
-                {
-                    printf("\n  Error: The folder '/Saved/The Witcher 3' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-                    getchar();
-                } else
-                {
-                    destinationFolderCheck();
-                    saveFunction("/Documents/The Witcher 3/gamesaves", "./Saved/The Witcher 3");
-                }
-
-                break;
-            case '2': // Hearts of Iron IV
-                if (std::filesystem::exists("./Saved/Hearts of Iron IV"))
-                {
-                    printf("\n  Error: The folder '/Saved/Hearts of Iron IV' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-                    getchar();
-                } else
-                {
-                    destinationFolderCheck();
-                    saveFunction("/Documents/Paradox Interactive/Hearts of Iron IV/save games", "./Saved/Hearts of Iron IV");
-                }
-
-                break;
-            case '3': // DARK SOULS: REMASTERED
-                if (std::filesystem::exists("./Saved/NBGI"))
-                {
-                    printf("\n  Error: The folder '/Saved/NBGI/DARK SOULS REMASTERED' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-                    getchar();
-                } else
-                {
-                    destinationFolderCheck();
-                    saveFunction("/Documents/NBGI/DARK SOULS REMASTERED", "./Saved/NBGI");
-                }
-
-                break;
-            case '4': // Crusader Kings III
+            case '1': // Crusader Kings III
                 if (std::filesystem::exists("./Saved/Crusader Kings III"))
                 {
                     printf("\n  Error: The folder '/Saved/Crusader Kings III' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -164,7 +126,20 @@ int main()
                 }
 
                 break;
-            case '5': // DARK SOULS III
+            case '2': // Cyberpunk 2077
+                if (std::filesystem::exists("./Saved/Cyberpunk 2077"))
+                {
+                    printf("\n  Error: The folder '/Saved/Cyberpunk 2077' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
+
+                    getchar();
+                } else
+                {
+                    destinationFolderCheck();
+                    saveFunction("/Saved Games/CD Projekt Red", "./Saved/CD Projekt Red");
+                }
+
+                break;
+            case '3': // DARK SOULS III
                 if (std::filesystem::exists("./Saved/DarkSoulsIII"))
                 {
                     printf("\n  Error: The folder '/Saved/DarkSoulsIII' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -174,6 +149,32 @@ int main()
                 {
                     destinationFolderCheck();
                     saveFunction("/AppData/Roaming/DarkSoulsIII", "./Saved/DarkSoulsIII");
+                }
+
+                break;
+            case '4': // DARK SOULS: REMASTERED
+                if (std::filesystem::exists("./Saved/NBGI"))
+                {
+                    printf("\n  Error: The folder '/Saved/NBGI/DARK SOULS REMASTERED' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
+
+                    getchar();
+                } else
+                {
+                    destinationFolderCheck();
+                    saveFunction("/Documents/NBGI/DARK SOULS REMASTERED", "./Saved/NBGI");
+                }
+
+                break;
+            case '5': // Hearts of Iron IV
+                if (std::filesystem::exists("./Saved/Hearts of Iron IV"))
+                {
+                    printf("\n  Error: The folder '/Saved/Hearts of Iron IV' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
+
+                    getchar();
+                } else
+                {
+                    destinationFolderCheck();
+                    saveFunction("/Documents/Paradox Interactive/Hearts of Iron IV/save games", "./Saved/Hearts of Iron IV");
                 }
 
                 break;
@@ -187,6 +188,19 @@ int main()
                 {
                     destinationFolderCheck();
                     saveFunction("/AppData/Roaming/Sekiro", "./Saved/Sekiro");
+                }
+
+                break;
+            case '7': // The Witcher 3
+                if (std::filesystem::exists("./Saved/The Witcher 3"))
+                {
+                    printf("\n  Error: The folder '/Saved/The Witcher 3' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
+
+                    getchar();
+                } else
+                {
+                    destinationFolderCheck();
+                    saveFunction("/Documents/The Witcher 3/gamesaves", "./Saved/The Witcher 3");
                 }
 
                 break;
