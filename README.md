@@ -18,6 +18,6 @@ You can download a binary release from the [release](https://github.com/DrakoDom
 To compile from source, you can use any compiler that supports the Windows API. All you need is the `main.cpp` file. You can also use the included
 `CMakeLists.txt` file if needed.
 
-Now, it is possible to modify this source for use on Linux. The only
-reason this program uses the Windows API, is so that the %USER% environment variable can be fetched. So, to get this program running on a Linux
-machine, you would need to modify the use of `std::getenv("USERPROFILE")` somehow. I have no explored this route yet. But feel free to do so yourself.
+Now, it is possible to modify this source for use on Linux. The only reason this program uses the Windows API, is so that the %USER% environment
+variable can be fetched. So, to get this program running on a Linux machine, you would need to modify the use of `std::getenv("USERPROFILE")`
+somehow. I have not explored this route yet. But feel free to do so yourself in a fork of this project.
