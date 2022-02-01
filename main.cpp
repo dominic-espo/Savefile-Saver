@@ -27,7 +27,7 @@ void startupChecks()
     }
 }
 
-void destinationFolderCheck()
+void destinationCheck()
 {
     if (!std::filesystem::exists("./Saved/"))
     {
@@ -76,7 +76,7 @@ int main()
   ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██   ▒▓██▒▓██▒    ▓█   ▀    ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
   ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▒████ ░▒██▒▒██░    ▒███      ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▓██ ░▄█ ▒
     ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ░▓█▒  ░░██░▒██░    ▒▓█  ▄      ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ▒██▀▀█▄
-  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build [02/01/2022 2:35 PM]
+  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build [02/01/2022 4:02 PM]
 
 )");
 
@@ -118,7 +118,7 @@ int main()
                     getchar();
                 } else
                 {
-                    destinationFolderCheck();
+                    destinationCheck();
                     saveFunction("/Documents/Paradox Interactive/Crusader Kings III", "./Saved/Crusader Kings III");
                 }
 
@@ -131,7 +131,7 @@ int main()
                     getchar();
                 } else
                 {
-                    destinationFolderCheck();
+                    destinationCheck();
                     saveFunction("/Saved Games/CD Projekt Red", "./Saved/CD Projekt Red");
                 }
 
@@ -144,7 +144,7 @@ int main()
                     getchar();
                 } else
                 {
-                    destinationFolderCheck();
+                    destinationCheck();
                     saveFunction("/AppData/Roaming/DarkSoulsIII", "./Saved/DarkSoulsIII");
                 }
 
@@ -157,7 +157,7 @@ int main()
                     getchar();
                 } else
                 {
-                    destinationFolderCheck();
+                    destinationCheck();
                     saveFunction("/Documents/NBGI/DARK SOULS REMASTERED", "./Saved/NBGI");
                 }
 
@@ -170,7 +170,7 @@ int main()
                     getchar();
                 } else
                 {
-                    destinationFolderCheck();
+                    destinationCheck();
                     saveFunction("/Documents/Paradox Interactive/Hearts of Iron IV/save games", "./Saved/Hearts of Iron IV");
                 }
 
@@ -183,7 +183,7 @@ int main()
                     getchar();
                 } else
                 {
-                    destinationFolderCheck();
+                    destinationCheck();
                     saveFunction("/AppData/Roaming/Sekiro", "./Saved/Sekiro");
                 }
 
@@ -196,7 +196,7 @@ int main()
                     getchar();
                 } else
                 {
-                    destinationFolderCheck();
+                    destinationCheck();
                     saveFunction("/Documents/The Witcher 3/gamesaves", "./Saved/The Witcher 3");
                 }
 
