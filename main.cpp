@@ -76,12 +76,12 @@ int main()
   ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██   ▒▓██▒▓██▒    ▓█   ▀    ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
   ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▒████ ░▒██▒▒██░    ▒███      ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▓██ ░▄█ ▒
     ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ░▓█▒  ░░██░▒██░    ▒▓█  ▄      ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ▒██▀▀█▄
-  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build [02/02/2022 8:43 AM]
+  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build [02/02/2022 8:47 AM]
 
 )");
 
         printf(" All currently supported games:\n\n"
-               "  1 > Crusader Kings III         | C:/Users/USER/Documents/Paradox Interactive/Crusader Kings III/saved games\n"
+               "  1 > Crusader Kings III         | C:/Users/USER/Documents/Paradox Interactive/Crusader Kings III/save games\n"
                "  2 > Cyberpunk 2077             | C:/Users/USER/Saved Games/CD Projekt Red\n"
                "  3 > DARK SOULS III             | C:/Users/USER/AppData/Roaming/DarkSoulsIII\n"
                "  4 > DARK SOULS: REMASTERED     | C:/Users/USER/Documents/NBGI/DARK SOULS REMASTERED\n"
@@ -121,7 +121,7 @@ int main()
                 } else
                 {
                     destinationCheck();
-                    saveFunction("/Documents/Paradox Interactive/Crusader Kings III", "./Saved/Crusader Kings III");
+                    saveFunction("/Documents/Paradox Interactive/Crusader Kings III/save games", "./Saved/Crusader Kings III");
                 }
 
                 break;
