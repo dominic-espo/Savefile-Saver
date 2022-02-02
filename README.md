@@ -8,6 +8,8 @@ I created this project as a solution to a simple, but annoying problem: Backing 
 * Cyberpunk 2077
 * DARK SOULS III
 * DARK SOULS: REMASTERED
+* DOOM (2016)
+* DOOM Eternal
 * Hearts of Iron IV
 * Sekiro: Shadows Die Twice
 * The Witcher 3
