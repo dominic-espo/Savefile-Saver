@@ -76,20 +76,20 @@ int main()
   ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██   ▒▓██▒▓██▒    ▓█   ▀    ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
   ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▒████ ░▒██▒▒██░    ▒███      ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▓██ ░▄█ ▒
     ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ░▓█▒  ░░██░▒██░    ▒▓█  ▄      ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ▒██▀▀█▄
-  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build [02/02/2022 8:36 AM]
+  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build [02/02/2022 8:38 AM]
 
 )");
 
         printf(" All currently supported games:\n\n"
-               "  1 > Crusader Kings III          | C:/Users/USER/Documents/Paradox Interactive/Crusader Kings III\n"
-               "  2 > Cyberpunk 2077              | C:/Users/USER/Saved Games/CD Projekt Red\n"
-               "  3 > DARK SOULS III              | C:/Users/USER/AppData/Roaming/DarkSoulsIII\n"
-               "  4 > DARK SOULS: REMASTERED      | C:/Users/USER/Documents/NBGI/DARK SOULS REMASTERED\n"
-               "  5 > DOOM (2016)                 | C:/Users/USER/Saved Games/id Software/DOOM\n"
-               "  6 > DOOM Eternal                | C:/Users/USER/Saved Games/id Software/DOOMEternal\n"
-               "  7 > Hearts of Iron IV           | C:/Users/USER/Documents/Paradox Interactive/Hearts of Iron IV/save games\n"
-               "  8 > Sekiro: Shadows Die Twice   | C:/Users/USER/AppData/Roaming/Sekiro\n"
-               "  9 > The Witcher 3               | C:/Users/USER/Documents/The Witcher 3/gamesaves\n\n"
+               "  1 > Crusader Kings III         | C:/Users/USER/Documents/Paradox Interactive/Crusader Kings III\n"
+               "  2 > Cyberpunk 2077             | C:/Users/USER/Saved Games/CD Projekt Red\n"
+               "  3 > DARK SOULS III             | C:/Users/USER/AppData/Roaming/DarkSoulsIII\n"
+               "  4 > DARK SOULS: REMASTERED     | C:/Users/USER/Documents/NBGI/DARK SOULS REMASTERED\n"
+               "  5 > DOOM (2016)                | C:/Users/USER/Saved Games/id Software/DOOM\n"
+               "  6 > DOOM Eternal               | C:/Users/USER/Saved Games/id Software/DOOMEternal\n"
+               "  7 > Hearts of Iron IV          | C:/Users/USER/Documents/Paradox Interactive/Hearts of Iron IV/save games\n"
+               "  8 > Sekiro: Shadows Die Twice  | C:/Users/USER/AppData/Roaming/Sekiro\n"
+               "  9 > The Witcher 3              | C:/Users/USER/Documents/The Witcher 3/gamesaves\n\n"
                "  0 > Exit\n\n"
                " > ");
 
