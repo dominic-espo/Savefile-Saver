@@ -29,3 +29,13 @@ Find a game that you would like to backup by finding it in the list, and reading
 You should then see a confirmation in the terminal saying that your files are now being copied to the `Saved` folder in the program's source directory.
 
 Afterwards, always make sure that the `Saved` folder has been backed up to some sort of USB or external drive. This cannot guarantee that your data won't be lost or stolen. But if your main machine fails in some way, you'll have an external backup of your savefiles.
+
+### Currently Supported Titles
+
+* Crusader Kings III
+* Cyberpunk 2077
+* DARK SOULS III
+* DARK SOULS: REMASTERED
+* Hearts of Iron IV
+* Sekiro: Shadows Die Twice
+* The Witcher 3
