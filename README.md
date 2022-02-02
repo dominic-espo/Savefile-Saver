@@ -14,13 +14,15 @@ I created this project as a solution to a simple, but annoying problem: Backing 
 * Sekiro: Shadows Die Twice
 * The Witcher 3
 
-### Requirements
+### Usage Requirements
 
-* Compiler that supports the Windows API, and C++20
-* CMake 3.21.1 =<
 * Windows 7 =<
 
 *It may be possible to use Windows versions lower than 7, but lesser versions haven't been tested. This may introduce critical bugs that can cause data loss.*
+
+### Development Requirements
+
+* A compiler that supports the Windows API and C++20.
 
 ### Installation
 
