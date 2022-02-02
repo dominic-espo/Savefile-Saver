@@ -76,7 +76,7 @@ int main()
   ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██   ▒▓██▒▓██▒    ▓█   ▀    ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
   ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▒████ ░▒██▒▒██░    ▒███      ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▓██ ░▄█ ▒
     ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ░▓█▒  ░░██░▒██░    ▒▓█  ▄      ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ▒██▀▀█▄
-  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build [02/01/2022 4:37 PM]
+  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build [02/02/2022 8:36 AM]
 
 )");
 
@@ -85,9 +85,11 @@ int main()
                "  2 > Cyberpunk 2077              | C:/Users/USER/Saved Games/CD Projekt Red\n"
                "  3 > DARK SOULS III              | C:/Users/USER/AppData/Roaming/DarkSoulsIII\n"
                "  4 > DARK SOULS: REMASTERED      | C:/Users/USER/Documents/NBGI/DARK SOULS REMASTERED\n"
-               "  5 > Hearts of Iron IV           | C:/Users/USER/Documents/Paradox Interactive/Hearts of Iron IV/save games\n"
-               "  6 > Sekiro: Shadows Die Twice   | C:/Users/USER/AppData/Roaming/Sekiro\n"
-               "  7 > The Witcher 3               | C:/Users/USER/Documents/The Witcher 3/gamesaves\n\n"
+               "  5 > DOOM (2016)                 | C:/Users/USER/Saved Games/id Software/DOOM\n"
+               "  6 > DOOM Eternal                | C:/Users/USER/Saved Games/id Software/DOOMEternal\n"
+               "  7 > Hearts of Iron IV           | C:/Users/USER/Documents/Paradox Interactive/Hearts of Iron IV/save games\n"
+               "  8 > Sekiro: Shadows Die Twice   | C:/Users/USER/AppData/Roaming/Sekiro\n"
+               "  9 > The Witcher 3               | C:/Users/USER/Documents/The Witcher 3/gamesaves\n\n"
                "  0 > Exit\n\n"
                " > ");
 
@@ -162,7 +164,33 @@ int main()
                 }
 
                 break;
-            case '5': // Hearts of Iron IV
+            case '5': // DOOM (2016)
+                if (std::filesystem::exists("./Saved/DOOM"))
+                {
+                    printf("\n  Error: The folder '/Saved/DOOM' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
+
+                    getchar();
+                } else
+                {
+                    destinationCheck();
+                    saveFunction("/Saved Games/id Software/DOOM/", "./Saved/DOOM");
+                }
+
+                break;
+            case '6': // DOOM Eternal
+                if (std::filesystem::exists("./Saved/DOOMEternal"))
+                {
+                    printf("\n  Error: The folder '/Saved/DOOMEternal' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
+
+                    getchar();
+                } else
+                {
+                    destinationCheck();
+                    saveFunction("/Saved Games/id Software/DOOMEternal/", "./Saved/DOOMEternal");
+                }
+
+                break;
+            case '7': // Hearts of Iron IV
                 if (std::filesystem::exists("./Saved/Hearts of Iron IV"))
                 {
                     printf("\n  Error: The folder '/Saved/Hearts of Iron IV' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -175,7 +203,7 @@ int main()
                 }
 
                 break;
-            case '6': // Sekiro: Shadows Die Twice
+            case '8': // Sekiro: Shadows Die Twice
                 if (std::filesystem::exists("./Saved/Sekiro"))
                 {
                     printf("\n  Error: The folder '/Saved/Sekiro' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -188,7 +216,7 @@ int main()
                 }
 
                 break;
-            case '7': // The Witcher 3
+            case '9': // The Witcher 3
                 if (std::filesystem::exists("./Saved/The Witcher 3"))
                 {
                     printf("\n  Error: The folder '/Saved/The Witcher 3' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
