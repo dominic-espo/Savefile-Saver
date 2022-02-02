@@ -41,9 +41,14 @@ void saveFunction(const std::string& sourceEndInput, const std::string& destFold
 
     printf("\n  Your files are now being copied. This may take some time depending on your drive type and source folder size...");
 
-    variables.sourceFolder = ""; // Makes sure that the destination variable is cleared.
+    variables.sourceFolder = ""; // Makes sure the string is cleared.
     variables.sourceFolder += std::getenv("USERPROFILE");
     variables.sourceFolder += sourceEndInput;
+
+    if (!std::filesystem::exists(variables.sourceFolder))
+    {
+        throw std::runtime_error("Error: The requested game does not have existing savefiles on your system.");
+    }
 
     std::filesystem::copy(variables.sourceFolder, destFolderInput, std::filesystem::copy_options::recursive);
 
