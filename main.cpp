@@ -35,7 +35,7 @@ void destinationCheck()
     }
 }
 
-void saveFunction(const std::string& sourceEndInput, const std::string& destinationInput)
+void saveFunction(const std::string& sourceEndInput, const std::string& destFolderInput)
 {
     Variables variables;
 
@@ -45,7 +45,7 @@ void saveFunction(const std::string& sourceEndInput, const std::string& destinat
     variables.destination += std::getenv("USERPROFILE");
     variables.destination += sourceEndInput;
 
-    std::filesystem::copy(variables.destination, destinationInput, std::filesystem::copy_options::recursive);
+    std::filesystem::copy(variables.destination, destFolderInput, std::filesystem::copy_options::recursive);
 
     printf("\n\n  Your files have been successfully copied to the 'Saved' folder. It is highly recommended that you copy\n"
            "  the 'Saved' folder to a USB or external drive.\n\n"
