@@ -7,7 +7,7 @@
 
 struct Variables
 {
-    std::string destination;    // The final source directory.
+    std::string sourceFolder;   // The savefile's source folder.
     char userInput[3] = "";     // Allows for user input.
     bool quit = false;          // Boolean for checking when to stop the program.
 };
@@ -41,11 +41,11 @@ void saveFunction(const std::string& sourceEndInput, const std::string& destFold
 
     printf("\n  Your files are now being copied. This may take some time depending on your drive type and source folder size...");
 
-    variables.destination = ""; // Makes sure that the destination variable is cleared.
-    variables.destination += std::getenv("USERPROFILE");
-    variables.destination += sourceEndInput;
+    variables.sourceFolder = ""; // Makes sure that the destination variable is cleared.
+    variables.sourceFolder += std::getenv("USERPROFILE");
+    variables.sourceFolder += sourceEndInput;
 
-    std::filesystem::copy(variables.destination, destFolderInput, std::filesystem::copy_options::recursive);
+    std::filesystem::copy(variables.sourceFolder, destFolderInput, std::filesystem::copy_options::recursive);
 
     printf("\n\n  Your files have been successfully copied to the 'Saved' folder. It is highly recommended that you copy\n"
            "  the 'Saved' folder to a USB or external drive.\n\n"
