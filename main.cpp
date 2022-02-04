@@ -81,7 +81,7 @@ int main()
   ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██   ▒▓██▒▓██▒    ▓█   ▀    ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
   ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▒████ ░▒██▒▒██░    ▒███      ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▓██ ░▄█ ▒
     ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ░▓█▒  ░░██░▒██░    ▒▓█  ▄      ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ▒██▀▀█▄
-  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build v0.1.0-alpha.1
+  ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Development Build v0.1.0-alpha.2
 
 )");
 
@@ -93,8 +93,9 @@ int main()
                "  5 > DOOM (2016)                | C:/Users/USER/Saved Games/id Software/DOOM\n"
                "  6 > DOOM Eternal               | C:/Users/USER/Saved Games/id Software/DOOMEternal\n"
                "  7 > Hearts of Iron IV          | C:/Users/USER/Documents/Paradox Interactive/Hearts of Iron IV/save games\n"
-               "  8 > Sekiro: Shadows Die Twice  | C:/Users/USER/AppData/Roaming/Sekiro\n"
-               "  9 > The Witcher 3              | C:/Users/USER/Documents/The Witcher 3/gamesaves\n\n"
+               "  8 > Minecraft                  | C:/Users/USER/AppData/Roaming/.minecraft/saves\n"
+               "  9 > Sekiro: Shadows Die Twice  | C:/Users/USER/AppData/Roaming/Sekiro\n"
+               "  10 > The Witcher 3              | C:/Users/USER/Documents/The Witcher 3/gamesaves\n\n"
                "  0 > Exit\n\n"
                " > ");
 
@@ -208,7 +209,20 @@ int main()
                 }
 
                 break;
-            case '8': // Sekiro: Shadows Die Twice
+            case '8': // Minecraft
+                if (std::filesystem::exists("./Saved/Minecraft"))
+                {
+                    printf("\n  Error: The folder '/Saved/Minecraft' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
+
+                    getchar();
+                } else
+                {
+                    destinationCheck();
+                    saveFunction("/AppData/Roaming/.minecraft/saves", "./Saved/Minecraft");
+                }
+
+                break;
+            case '9': // Sekiro: Shadows Die Twice
                 if (std::filesystem::exists("./Saved/Sekiro"))
                 {
                     printf("\n  Error: The folder '/Saved/Sekiro' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -221,7 +235,7 @@ int main()
                 }
 
                 break;
-            case '9': // The Witcher 3
+            case '10': // The Witcher 3
                 if (std::filesystem::exists("./Saved/The Witcher 3"))
                 {
                     printf("\n  Error: The folder '/Saved/The Witcher 3' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
