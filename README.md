@@ -11,6 +11,7 @@ I created this project as a solution to a simple, but annoying problem: Backing 
 * DOOM (2016)
 * DOOM Eternal
 * Hearts of Iron IV
+* Minecraft
 * Sekiro: Shadows Die Twice
 * The Witcher 3
 
