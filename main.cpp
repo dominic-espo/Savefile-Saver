@@ -8,7 +8,8 @@
 struct Variables
 {
     std::string sourceFolder;   // The savefile's source folder.
-    char userInput[3] = "";     // Allows for user input.
+    char userInputC[64];        // Allows for user input.
+    int userInputI[64];         // userInput after being converted to an integer.
     bool quit = false;          // Boolean for checking when to stop the program.
 };
 
@@ -99,9 +100,10 @@ int main()
                "  0 > Exit\n\n"
                " > ");
 
-        fgets(variables.userInput, sizeof(variables.userInput), stdin); // fgets is safer than scanf.
+        fgets(variables.userInputC, sizeof(variables.userInputC), stdin);
+        *variables.userInputI = std::atoi(variables.userInputC);
 
-        switch (*variables.userInput)
+        switch (*variables.userInputI)
         {
             default:
                 printf("\n  You have entered an out-of-bounds integer, or a non-integer...");
@@ -109,7 +111,7 @@ int main()
                 getchar();
 
                 break;
-            case '0':
+            case 0:
                 variables.quit = true;
 
                 printf("\n  Thank you for using my program!\n\n"
@@ -118,7 +120,7 @@ int main()
                 getchar();
 
                 break;
-            case '1': // Crusader Kings III
+            case 1: // Crusader Kings III
                 if (std::filesystem::exists("./Saved/Crusader Kings III"))
                 {
                     printf("\n  Error: The folder '/Saved/Crusader Kings III' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -131,7 +133,7 @@ int main()
                 }
 
                 break;
-            case '2': // Cyberpunk 2077
+            case 2: // Cyberpunk 2077
                 if (std::filesystem::exists("./Saved/Cyberpunk 2077"))
                 {
                     printf("\n  Error: The folder '/Saved/Cyberpunk 2077' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -144,7 +146,7 @@ int main()
                 }
 
                 break;
-            case '3': // DARK SOULS III
+            case 3: // DARK SOULS III
                 if (std::filesystem::exists("./Saved/DarkSoulsIII"))
                 {
                     printf("\n  Error: The folder '/Saved/DarkSoulsIII' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -157,7 +159,7 @@ int main()
                 }
 
                 break;
-            case '4': // DARK SOULS: REMASTERED
+            case 4: // DARK SOULS: REMASTERED
                 if (std::filesystem::exists("./Saved/NBGI"))
                 {
                     printf("\n  Error: The folder '/Saved/NBGI/DARK SOULS REMASTERED' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -170,7 +172,7 @@ int main()
                 }
 
                 break;
-            case '5': // DOOM (2016)
+            case 5: // DOOM (2016)
                 if (std::filesystem::exists("./Saved/DOOM"))
                 {
                     printf("\n  Error: The folder '/Saved/DOOM' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -183,7 +185,7 @@ int main()
                 }
 
                 break;
-            case '6': // DOOM Eternal
+            case 6: // DOOM Eternal
                 if (std::filesystem::exists("./Saved/DOOMEternal"))
                 {
                     printf("\n  Error: The folder '/Saved/DOOMEternal' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -196,7 +198,7 @@ int main()
                 }
 
                 break;
-            case '7': // Hearts of Iron IV
+            case 7: // Hearts of Iron IV
                 if (std::filesystem::exists("./Saved/Hearts of Iron IV"))
                 {
                     printf("\n  Error: The folder '/Saved/Hearts of Iron IV' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -209,7 +211,7 @@ int main()
                 }
 
                 break;
-            case '8': // Minecraft
+            case 8: // Minecraft
                 if (std::filesystem::exists("./Saved/Minecraft"))
                 {
                     printf("\n  Error: The folder '/Saved/Minecraft' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -222,7 +224,7 @@ int main()
                 }
 
                 break;
-            case '9': // Sekiro: Shadows Die Twice
+            case 9: // Sekiro: Shadows Die Twice
                 if (std::filesystem::exists("./Saved/Sekiro"))
                 {
                     printf("\n  Error: The folder '/Saved/Sekiro' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
@@ -235,7 +237,7 @@ int main()
                 }
 
                 break;
-            case '10': // The Witcher 3
+            case 10: // The Witcher 3
                 if (std::filesystem::exists("./Saved/The Witcher 3"))
                 {
                     printf("\n  Error: The folder '/Saved/The Witcher 3' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
