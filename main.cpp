@@ -8,8 +8,8 @@
 struct Variables
 {
     std::string sourceFolder;   // The savefile's source folder.
-    char userInputC[64];        // Allows for user input.
-    int userInputI[64];         // userInput after being converted to an integer.
+    char userInputC[64] = {};   // Allows for user input.
+    int userInputI[64] = {};    // userInput after being converted to an integer.
     bool quit = false;          // Boolean for checking when to stop the program.
 };
 
