@@ -60,6 +60,16 @@ void saveFunction(const std::string& sourceEndInput, const std::string& destFold
     getchar();
 }
 
+int userInputFunction()
+{
+    Variables variables;
+
+    fgets(variables.userInputC, sizeof(variables.userInputC), stdin);
+    *variables.userInputI = std::stoi(variables.userInputC);
+
+    return *variables.userInputI;
+}
+
 int main()
 {
     Variables variables;
@@ -100,10 +110,7 @@ int main()
                "  0 > Exit\n\n"
                " > ");
 
-        fgets(variables.userInputC, sizeof(variables.userInputC), stdin);
-        *variables.userInputI = std::atoi(variables.userInputC);
-
-        switch (*variables.userInputI)
+        switch (userInputFunction())
         {
             default:
                 printf("\n  You have entered an out-of-bounds integer, or a non-integer...");
