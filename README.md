@@ -37,7 +37,7 @@ This would require a lot of work for a very small amount of users. I use Linux m
 
 ### Usage
 
-After either downloading the binary release or compiling from source, run the program in the command line with the `--help` command. You should be greeted with some ASCII art, a version number, and a place to input your desired game.
+After either downloading the binary release or compiling from source, run the program in the command line with the `--save` command. You should be greeted with some ASCII art, a version number, and a place to input your desired game.
 
 You should then see a confirmation in the terminal saying that your files are now being copied to the `Saved` folder in the program's source directory.
 
