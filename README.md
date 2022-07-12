@@ -29,9 +29,9 @@ I created this project as a solution to a simple, but annoying problem: Backing 
 
 You can either download a binary release from the [release](https://github.com/DrakoDom/Savefile-Saver/releases/ "Releases") page, or compile from source.
 
-To compile from source all you need is the `main.cpp` file, and any compiler that supports the Windows API and C++20. There is no required IDE. You can also use the included `CMakeLists.txt` file if needed.
+To compile from source, all you need is the `main.cpp` file, and any compiler that supports the Windows API and C++20. There is no required IDE. You can also use the included `CMakeLists.txt` file if needed.
 
-Now, it is possible to modify this source for use on Linux. This program requires the Windows API so that the %USER% environment variable can be fetched, unicode can be displayed properly, and the terminal can have a custom name. So, to get this program running on a Linux machine, you would need to remove `SetConsoleTitle(TEXT("Savefile Saver"))` and `SetConsoleOutputCP(CP_UTF8)` then modify the use of `std::getenv("USERPROFILE")` somehow.
+Now, it is possible to modify this source for use on Linux. This program requires the Windows API so that the %USER% environment variable can be fetched and unicode can be displayed properly. So, to get this program running on a Linux machine, you would need to remove `SetConsoleOutputCP(CP_UTF8)` then modify the use of `std::getenv("USERPROFILE")`, and locate where all of your savefile folders are located.
 
 This would require a lot of work for a very small amount of users. I use Linux myself, but not for gaming. That's why I have Windows. So, I have not explored this route yet. But feel free to do so yourself in a fork of this project.
 
