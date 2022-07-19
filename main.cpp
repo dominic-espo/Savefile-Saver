@@ -209,7 +209,7 @@ static void showAscii()
  ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██   ▒▓██▒▓██▒    ▓█   ▀    ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
  ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▒████ ░▒██▒▒██░    ▒███      ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▓██ ░▄█ ▒
    ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ░▓█▒  ░░██░▒██░    ▒▓█  ▄      ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ▒██▀▀█▄
- ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ Build v0.2.0
+ ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ v0.3.0-alpha.1
 
 )");
 }
@@ -248,7 +248,15 @@ int main(int argc, char* argv[])
     SetConsoleOutputCP(CP_UTF8); // Fixes unicode ASCII art not being displayed properly.
     startupCheck();
 
-    // Checks if the help argument is passed.
+    // If no argument has been passed, show help.
+    if (argc == 1)
+    {
+        showHelp();
+
+        return 0;
+    }
+
+    // Checks if the help argument has been passed.
     for (i = 1; i < argc; ++i)
     {
         if (strcmp(argv[i], "--help") == 0)
