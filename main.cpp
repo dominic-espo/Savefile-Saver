@@ -164,7 +164,7 @@ static void gameCheck(const std::string& games_arg)
     }
     else
     {
-        printf("\n  Error: You have entered an invalid game as an argument. Consider checking the '--games' command...\n\n");
+        printf("\n  Error: You have entered an invalid game as an argument. Consider checking the '--games' command...\n\n  Usage: ./Savefile-Saver.exe -s 'Your Game'\n\n");
     }
 }
 
@@ -185,7 +185,7 @@ static void showHelp()
     showAscii();
 
     printf(" -h, --help     Lists all commands and their functions.\n\n"
-           " -s, --save     Select a game to save.\n"
+           " -s, --save     Input a game to save.\n                Usage: ./Savefile-Saver.exe -s 'Your Game'\n\n"
            " -g, --games    Lists all supported games.\n\n");
 }
 
