@@ -184,9 +184,9 @@ static void showHelp()
 {
     showAscii();
 
-    printf(" -h | --help     Lists all commands and their functions.\n\n"
-           " -s | --save     Select a game to save.\n"
-           " -g | --games    Lists all supported games.\n\n");
+    printf(" -h, --help     Lists all commands and their functions.\n\n"
+           " -s, --save     Select a game to save.\n"
+           " -g, --games    Lists all supported games.\n\n");
 }
 
 static void showGames()
