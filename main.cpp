@@ -28,8 +28,6 @@ static void saveFunction(const std::string& source_folder_end, const std::string
 
 static void startupCheck()
 {
-    opterr = 0;
-
     if (!std::filesystem::exists("./Saved/"))
     {
         std::filesystem::create_directory("./Saved/");
@@ -175,7 +173,7 @@ static void showAscii()
  ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██   ▒▓██▒▓██▒    ▓█   ▀    ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
  ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▒████ ░▒██▒▒██░    ▒███      ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▓██ ░▄█ ▒
    ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ░▓█▒  ░░██░▒██░    ▒▓█  ▄      ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ▒██▀▀█▄
- ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ v0.3.0
+ ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ v0.3.1-beta.1
 
 )");
 }
@@ -207,6 +205,7 @@ static void showGames()
 
 int main(int argc, char* argv[])
 {
+    opterr = 0;
     const char* short_opts = "hs:g";
     const option long_opts[] = {
             {"help",    no_argument,        nullptr, 'h'},
