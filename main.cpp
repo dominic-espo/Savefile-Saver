@@ -209,9 +209,9 @@ int main(int argc, char* argv[])
 {
     const char* short_opts = "hs:g";
     const option long_opts[] = {
-            {"help",    no_argument,    nullptr, 'h'},
-            {"save",    no_argument,    nullptr, 's'},
-            {"games",   no_argument,    nullptr, 'g'}
+            {"help",    no_argument,        nullptr, 'h'},
+            {"save",    required_argument,  nullptr, 's'},
+            {"games",   no_argument,        nullptr, 'g'}
     };
     const auto getopt_init = getopt_long(argc, argv, short_opts, long_opts, nullptr);
 
