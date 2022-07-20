@@ -1,44 +1,34 @@
 // Created by Dominic Esposito on 01/02/2022
 
-#include <iostream>     // For text output. The fmt library may be a viable alternative for faster output and colors, but will introduce unnecessary bloat.
 #include <filesystem>   // For creating folders.
 #include <string>       // For string variables.
-#include <algorithm>    // For std::find.
+#include <getopt.h>     // For getopt_long.
 #include <windows.h>    // For getting the USERPROFILE and setting up unicode.
 
-struct Variables
+static void saveFunction(const std::string& source_folder_end, const std::string& destination_folder)
 {
-    std::string sourceFolder;   // The savefile's source folder.
-    std::string userInput;      // For user input.
-};
-
-static void saveFunction(const std::string& sourceFolderEnd, const std::string& destFolder)
-{
-    Variables variables;
+    std::string source_folder; // The savefile's source folder.
 
     printf("\n  Your files are now being copied. This may take some time depending on your drive type and data size...");
 
-    variables.sourceFolder = ""; // Makes sure the string is cleared.
-    variables.sourceFolder += std::getenv("USERPROFILE"); // Appends the current account username to the directory.
-    variables.sourceFolder += sourceFolderEnd; // Appends the second half of the directory after the account username.
+    source_folder = ""; // Makes sure the string is cleared.
+    source_folder += std::getenv("USERPROFILE"); // Appends the current account username to the directory.
+    source_folder += source_folder_end; // Appends the second half of the directory after the account username.
 
-    if (!std::filesystem::exists(variables.sourceFolder))
+    if (!std::filesystem::exists(source_folder))
     {
-        throw std::runtime_error("Error: The requested game does not have any existing savefiles on your system...");
+        throw std::runtime_error("Error: The requested game does not have any existing savefiles on your system... Press 'Enter' to exit");
     }
 
-    std::filesystem::copy(variables.sourceFolder, destFolder, std::filesystem::copy_options::recursive);
+    std::filesystem::copy(source_folder, destination_folder, std::filesystem::copy_options::recursive);
 
     printf("\n\n  Your files have been successfully copied to the 'Saved' folder. It is highly recommended that you copy\n"
-           "  the 'Saved' folder to a USB or external drive.\n\n"
-           " Press 'Enter' to exit...");
-
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+           "  the 'Saved' folder to a USB or external drive.\n\n");
 }
 
 static void startupCheck()
 {
-    Variables variables;
+    opterr = 0;
 
     if (!std::filesystem::exists("./Saved/"))
     {
@@ -47,7 +37,7 @@ static void startupCheck()
 
     if (!std::filesystem::exists("./Saved/"))
     {
-        throw std::runtime_error("Error: Unable to create '/Saved/' folder...");
+        throw std::runtime_error("Error: Unable to create '/Saved/' folder... Press 'Enter' to exit");
     }
 }
 
@@ -55,150 +45,126 @@ static void destinationCheck()
 {
     if (!std::filesystem::exists("./Saved/"))
     {
-        throw std::runtime_error("Error: The '/Saved' folder was modified or removed during program operation...");
+        throw std::runtime_error("Error: The '/Saved' folder was modified or removed during program operation... Press 'Enter' to exit");
     }
 }
 
 // This is definitely terrible
-static void gameCheck()
+static void gameCheck(const std::string& games_arg)
 {
-    Variables variables;
-
-    printf("  If you're not sure what games are supported, exit, and run the --games command"
-           "\n\n > ");
-
-    // Gets the entire line of user input (including spaces).
-    std::getline(std::cin, variables.userInput);
-
-    if (variables.userInput == "Crusader Kings III")
+    if (games_arg == "Crusader Kings III")
     {
         if (std::filesystem::exists("./Saved/Crusader Kings III"))
         {
-            printf("\n  Error: The folder '/Saved/Crusader Kings III' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/Crusader Kings III' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/Documents/Paradox Interactive/Crusader Kings III/save games", "./Saved/Crusader Kings III");
         }
     }
-    else if (variables.userInput == "Cyberpunk 2077")
+    else if (games_arg == "Cyberpunk 2077")
     {
         if (std::filesystem::exists("./Saved/Cyberpunk 2077"))
         {
-            printf("\n  Error: The folder '/Saved/Cyberpunk 2077' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/Cyberpunk 2077' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/Saved Games/CD Projekt Red", "./Saved/CD Projekt Red");
         }
     }
-    else if (variables.userInput == "DARK SOULS III")
+    else if (games_arg == "DARK SOULS III")
     {
         if (std::filesystem::exists("./Saved/DarkSoulsIII"))
         {
-            printf("\n  Error: The folder '/Saved/DarkSoulsIII' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/DarkSoulsIII' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/AppData/Roaming/DarkSoulsIII", "./Saved/DarkSoulsIII");
         }
     }
-    else if (variables.userInput == "DARK SOULS: REMASTERED")
+    else if (games_arg == "DARK SOULS: REMASTERED")
     {
         if (std::filesystem::exists("./Saved/NBGI"))
         {
-            printf("\n  Error: The folder '/Saved/NBGI/DARK SOULS REMASTERED' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/NBGI/DARK SOULS REMASTERED' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/Documents/NBGI/DARK SOULS REMASTERED", "./Saved/NBGI");
         }
     }
-    else if (variables.userInput == "DOOM (2016)")
+    else if (games_arg == "DOOM (2016)")
     {
         if (std::filesystem::exists("./Saved/DOOM"))
         {
-            printf("\n  Error: The folder '/Saved/DOOM' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/DOOM' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/Saved Games/id Software/DOOM/", "./Saved/DOOM");
         }
     }
-    else if (variables.userInput == "DOOM Eternal")
+    else if (games_arg == "DOOM Eternal")
     {
         if (std::filesystem::exists("./Saved/DOOMEternal"))
         {
-            printf("\n  Error: The folder '/Saved/DOOMEternal' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/DOOMEternal' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/Saved Games/id Software/DOOMEternal/", "./Saved/DOOMEternal");
         }
     }
-    else if (variables.userInput == "Hearts of Iron IV")
+    else if (games_arg == "Hearts of Iron IV")
     {
         if (std::filesystem::exists("./Saved/Hearts of Iron IV"))
         {
-            printf("\n  Error: The folder '/Saved/Hearts of Iron IV' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/Hearts of Iron IV' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/Documents/Paradox Interactive/Hearts of Iron IV/save games", "./Saved/Hearts of Iron IV");
         }
     }
-    else if (variables.userInput == "Minecraft")
+    else if (games_arg == "Minecraft")
     {
         if (std::filesystem::exists("./Saved/Minecraft"))
         {
-            printf("\n  Error: The folder '/Saved/Minecraft' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/Minecraft' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/AppData/Roaming/.minecraft/saves", "./Saved/Minecraft");
         }
     }
-    else if (variables.userInput == "Sekiro: Shadows Die Twice")
+    else if (games_arg == "Sekiro: Shadows Die Twice")
     {
         if (std::filesystem::exists("./Saved/Sekiro"))
         {
-            printf("\n  Error: The folder '/Saved/Sekiro' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/Sekiro' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/AppData/Roaming/Sekiro", "./Saved/Sekiro");
         }
     }
-    else if (variables.userInput == "The Witcher 3")
+    else if (games_arg == "The Witcher 3")
     {
         if (std::filesystem::exists("./Saved/The Witcher 3"))
         {
-            printf("\n  Error: The folder '/Saved/The Witcher 3' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...");
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            printf("\n  Error: The folder '/Saved/The Witcher 3' already exists. To prevent data loss, you will be unable to write to the folder until it is removed from '/Saved'...\n\n");
         } else
         {
             destinationCheck();
             saveFunction("/Documents/The Witcher 3/gamesaves", "./Saved/The Witcher 3");
         }
+    }
+    else
+    {
+        printf("\n  Error: You have entered an invalid game as an argument. Consider checking the '--games' command...\n\n");
     }
 }
 
@@ -209,7 +175,7 @@ static void showAscii()
  ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██   ▒▓██▒▓██▒    ▓█   ▀    ▒██    ▒ ▒████▄ ▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
  ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▒████ ░▒██▒▒██░    ▒███      ░ ▓██▄   ▒██  ▀█▄▓██  █▒░▒███   ▓██ ░▄█ ▒
    ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ░▓█▒  ░░██░▒██░    ▒▓█  ▄      ▒   ██▒░██▄▄▄▄██▒██ █░░▒▓█  ▄ ▒██▀▀█▄
- ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ v0.3.0-alpha.1
+ ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░▒█░   ░██░░██████▒░▒████▒   ▒██████▒▒ ▓█   ▓██▒▒▀█░  ░▒████▒░██▓ ▒██▒ v0.3.0.0
 
 )");
 }
@@ -218,9 +184,9 @@ static void showHelp()
 {
     showAscii();
 
-    printf(" --help     Lists all commands and their functions.\n\n"
-           " --save     Select a game to save.\n"
-           " --games    Lists all supported games.\n\n");
+    printf(" -h | --help     Lists all commands and their functions.\n\n"
+           " -s | --save     Select a game to save.\n"
+           " -g | --games    Lists all supported games.\n\n");
 }
 
 static void showGames()
@@ -241,12 +207,16 @@ static void showGames()
 
 int main(int argc, char* argv[])
 {
-    Variables variables;
+    const char* short_opts = "hs:g";
+    const option long_opts[] = {
+            {"help",    no_argument,    nullptr, 'h'},
+            {"save",    no_argument,    nullptr, 's'},
+            {"games",   no_argument,    nullptr, 'g'}
+    };
+    const auto getopt_init = getopt_long(argc, argv, short_opts, long_opts, nullptr);
 
-    int i = 0;
-
-    SetConsoleOutputCP(CP_UTF8); // Fixes unicode ASCII art not being displayed properly.
     startupCheck();
+    SetConsoleOutputCP(CP_UTF8); // Fixes ASCII art not being displayed properly.
 
     // If no argument has been passed, show help.
     if (argc == 1)
@@ -256,35 +226,26 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    // Checks if the help argument has been passed.
-    for (i = 1; i < argc; ++i)
+    while (getopt_init != -1)
     {
-        if (strcmp(argv[i], "--help") == 0)
+        switch (getopt_init)
         {
-            showHelp();
+            default:
+                printf("\n  Error: You have entered an invalid argument. Consider checking the '--help' command...\n\n");
 
-            return 0;
-        }
-    }
+                return 0;
+            case 'h':
+                showHelp();
 
-    // Checks for all other arguments.
-    for (i = 1; i < argc; ++i)
-    {
-        if (strcmp(argv[i], "--games") == 0)
-        {
-            showGames();
+                return 0;
+            case 's':
+                gameCheck(optarg);
 
-            return 0;
-        }
+                return 0;
+            case 'g':
+                showGames();
 
-        if (strcmp(argv[i], "--save") == 0)
-        {
-            showAscii();
-
-            // This is definitely terrible
-            gameCheck();
-
-            return 0;
+                return 0;
         }
     }
 }
